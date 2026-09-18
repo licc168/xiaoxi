@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>课间操</title>
+    <link rel="stylesheet" href="/src/overlay.css" />
+    <link rel="stylesheet" href="/src/figure.css" />
+  </head>
+  <body>
+    <div class="sky">
+      <div class="sun"></div>
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="grass"></div>
+
+      <div class="topbar">
+        <div class="badge">
+          <p class="kicker">工间操</p>
+          <h2>课间休息</h2>
+        </div>
+        <div class="clock">
+          <div class="remain" id="remain">10:00</div>
+          <div class="caption">跟着做，屏幕先放一放</div>
+        </div>
+      </div>
+
+      <aside class="summary" id="summary" hidden>
+        <p class="sum-kicker">这一轮你在忙</p>
+        <h3 data-summary-title></h3>
+        <ul data-summary-apps></ul>
+        <p class="sum-keys" data-summary-keys></p>
+      </aside>
+
+      <div class="stage">
+        <div id="figure"></div>
+        <div class="copy">
+          <p class="section" id="section">准备活动</p>
+          <h1 class="name" id="name">深呼吸</h1>
+          <p class="instruction" id="instruction">双臂慢慢举起，吸气；落下，呼气。</p>
+        </div>
+      </div>
+
+      <div class="meter">
+        <div class="beats" id="beats"></div>
+        <div class="set-label" id="setLabel">第 1 / 4 组</div>
+      </div>
+
+      <div class="overlay-actions" id="actions">
+        <button type="button" id="skipMove">跳过这个动作</button>
+        <button type="button" class="danger" id="endRest">提前结束休息</button>
+      </div>
+      <p class="strict-note" id="strictNote" hidden>严格模式：跟完这一节课间操再回去工作</p>
+    </div>
+    <script type="module" src="/src/overlay.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小息</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/figure.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="brand">
+          <h1>小息</h1>
+          <p>到点就做操，动动手扭扭脖子</p>
+        </div>
+        <div class="mascot" id="mascot"></div>
+      </header>
+
+      <div class="ring-wrap">
+        <div class="ring" id="ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="track" cx="60" cy="60" r="54"></circle>
+            <circle class="prog" id="prog" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="ring-inner">
+            <div class="time" id="time">45:00</div>
+            <div class="phase" id="phase">准备开始</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="primary" id="toggle">开始专注</button>
+        <button type="button" id="restNow">马上课间操</button>
+        <button type="button" class="ghost" id="preview">试做 45 秒</button>
+      </div>
+
+      <section class="panel last-summary" id="lastSummary" hidden>
+        <p class="sum-kicker">上一轮在忙什么</p>
+        <h3 data-summary-title></h3>
+        <ul data-summary-apps></ul>
+        <p class="sum-keys" data-summary-keys></p>
+      </section>
+
+      <section class="panel">
+        <div class="field">
+          <label for="workMinutes">工作间隔</label>
+          <div class="stepper">
+            <button type="button" data-field="workMinutes" data-delta="-5">−</button>
+            <input id="workMinutes" type="number" min="1" max="180" value="45" />
+            <span>分钟</span>
+            <button type="button" data-field="workMinutes" data-delta="5">+</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="restMinutes">休息时长</label>
+          <div class="stepper">
+            <button type="button" data-field="restMinutes" data-delta="-1">−</button>
+            <input id="restMinutes" type="number" min="1" max="60" value="10" />
+            <span>分钟</span>
+            <button type="button" data-field="restMinutes" data-delta="1">+</button>
+          </div>
+        </div>
+        <div class="presets" id="presets">
+          <button type="button" data-work="45" data-rest="10">课间 45 / 10</button>
+          <button type="button" data-work="25" data-rest="5">番茄 25 / 5</button>
+          <button type="button" data-work="50" data-rest="10">专注 50 / 10</button>
+          <button type="button" data-work="30" data-rest="5">短休 30 / 5</button>
+        </div>
+      </section>
+
+      <section class="panel toggles">
+        <label class="toggle">
+          语音口令
+          <input id="voice" type="checkbox" checked />
+        </label>
+        <label class="toggle">
+          节拍提示音
+          <input id="beat" type="checkbox" checked />
+        </label>
+        <label class="toggle">
+          严格模式（休息不可跳过）
+          <input id="strict" type="checkbox" />
+        </label>
+        <label class="toggle">
+          休息时显示工作总结
+          <input id="summary" type="checkbox" checked />
+        </label>
+      </section>
+
+      <div class="row-btns">
+        <button type="button" class="ghost" id="reset">重置</button>
+        <button type="button" class="ghost" id="pause">暂停</button>
+      </div>
+      <p class="hint">关闭窗口会躲进托盘，计时继续。右下角图标可重新打开。工作总结只记前台软件和按键次数，不截屏、不记录敲了什么字。</p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

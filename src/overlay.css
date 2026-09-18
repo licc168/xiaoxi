@@ -1,0 +1,339 @@
+:root {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+  color: #1f2a24;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #8fd3ee;
+  user-select: none;
+}
+
+.sky {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 40px 32px;
+  background:
+    linear-gradient(180deg, #8fd3ee 0%, #c8ebc0 58%, #8fce7a 100%);
+  position: relative;
+}
+
+.sun {
+  position: absolute;
+  top: 36px;
+  right: 8%;
+  width: 92px;
+  height: 92px;
+  background: #ffd56a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 14px rgba(255, 213, 106, 0.28), 0 0 60px rgba(255, 213, 106, 0.55);
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 40px;
+  height: 36px;
+  filter: drop-shadow(0 8px 10px rgba(40, 80, 90, 0.08));
+  animation: drift 28s linear infinite;
+}
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+.cloud::before { width: 34px; height: 34px; top: -16px; left: 18px; }
+.cloud::after { width: 46px; height: 46px; top: -22px; left: 44px; }
+.cloud.c1 { width: 120px; top: 70px; left: -80px; animation-duration: 36s; }
+.cloud.c2 { width: 90px; top: 140px; left: -120px; animation-duration: 48s; animation-delay: -12s; opacity: 0.85; }
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(120vw); }
+}
+
+.topbar {
+  width: min(960px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.badge {
+  background: rgba(255, 250, 240, 0.72);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 10px 16px;
+}
+
+.badge .kicker {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: #3d6a58;
+}
+
+.badge h2 {
+  margin: 2px 0 0;
+  font-size: 28px;
+}
+
+.clock {
+  text-align: right;
+}
+
+.clock .remain {
+  font-size: 64px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: #16352c;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+.clock .caption {
+  margin-top: 4px;
+  color: #3d6a58;
+  font-size: 13px;
+}
+
+.stage {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#figure {
+  height: 340px;
+  display: grid;
+  place-items: end center;
+}
+
+.stage .puppet {
+  transform-origin: center bottom;
+}
+
+.copy {
+  text-align: center;
+  max-width: 560px;
+}
+
+.copy .section {
+  margin: 0;
+  color: #3d6a58;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+}
+
+.copy .name {
+  margin: 6px 0 8px;
+  font-size: 36px;
+}
+
+.copy .instruction {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #234338;
+}
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.beats {
+  display: flex;
+  gap: 10px;
+}
+
+.beats i {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 0 0 2px rgba(22, 53, 44, 0.12);
+  font-style: normal;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  color: transparent;
+}
+
+.beats i.on {
+  background: #16352c;
+  transform: scale(1.15);
+}
+
+.beats i.accent {
+  background: #e2a21a;
+}
+
+.set-label {
+  font-size: 14px;
+  color: #234338;
+}
+
+.overlay-actions {
+  display: flex;
+  gap: 12px;
+  z-index: 2;
+}
+
+.overlay-actions button {
+  font: inherit;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  background: rgba(255, 250, 240, 0.88);
+  color: #16352c;
+}
+
+.overlay-actions button.danger {
+  background: #16352c;
+  color: #fffaf2;
+}
+
+.overlay-actions.hidden {
+  visibility: hidden;
+}
+
+.strict-note {
+  z-index: 2;
+  color: #234338;
+  font-size: 13px;
+}
+
+.grass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(180deg, transparent, rgba(46, 110, 52, 0.28));
+  pointer-events: none;
+}
+
+.summary {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-42%);
+  width: 280px;
+  background: rgba(255, 250, 240, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 16px 18px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary[hidden] {
+  display: none;
+}
+
+.summary .sum-kicker {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #3d6a58;
+}
+
+.summary h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.summary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sum-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.sum-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sum-time {
+  color: #3d6a58;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.sum-title {
+  font-size: 11px;
+  color: #3d6a58;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sum-bar {
+  display: block;
+  height: 4px;
+  border-radius: 99px;
+  background: #1e8a70;
+  opacity: 0.55;
+}
+
+.sum-keys {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #3d6a58;
+}
+
+@media (max-height: 800px) {
+  .sky { padding: 16px 24px 18px; }
+  #figure { height: 250px; }
+  .stage .puppet { transform: scale(0.78); }
+  .copy .name { font-size: 26px; }
+  .clock .remain { font-size: 44px; }
+}
+
+@media (max-width: 1100px) {
+  .summary {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(960px, 100%);
+    margin-top: 8px;
+  }
+}

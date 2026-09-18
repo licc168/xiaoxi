@@ -1,0 +1,813 @@
+.puppet {
+  --skin: #f1c4a5;
+  --skin-shadow: #e0aa86;
+  --hair: #3b2a22;
+  --shirt: #2cb89a;
+  --shirt-dark: #219a81;
+  --pants: #355f7a;
+  --shoe: #2f2a28;
+  --phrase: 4.48s;
+  --hold: cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+  width: 220px;
+  height: 340px;
+  margin: 0 auto;
+}
+
+.puppet .shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  width: 96px;
+  height: 16px;
+  background: rgba(40, 70, 50, 0.28);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  filter: blur(2px);
+  animation: shadow-breathe var(--phrase) ease-in-out infinite;
+}
+
+.puppet .stage-body {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 88%;
+}
+
+.puppet .upper-group {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 178px;
+}
+
+.puppet .head-group {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  width: 74px;
+  height: 92px;
+  margin-left: -37px;
+  transform-origin: 50% 92%;
+  z-index: 5;
+}
+
+.puppet .neck {
+  position: absolute;
+  left: 50%;
+  top: 62px;
+  width: 16px;
+  height: 22px;
+  margin-left: -8px;
+  background: var(--skin-shadow);
+  border-radius: 0 0 7px 7px;
+}
+
+.puppet .head {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  background: var(--skin);
+  border-radius: 50%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.puppet .hair-back {
+  position: absolute;
+  left: 4px;
+  top: -6px;
+  width: 66px;
+  height: 36px;
+  background: var(--hair);
+  border-radius: 34px 34px 12px 12px;
+  z-index: 1;
+}
+
+.puppet .hair {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 28px;
+  background: var(--hair);
+  border-radius: 36px 36px 8px 8px;
+  z-index: 3;
+}
+
+.puppet .hair::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  width: 22px;
+  height: 14px;
+  background: var(--hair);
+  border-radius: 0 0 16px 4px;
+}
+
+.puppet .ear {
+  position: absolute;
+  top: 30px;
+  width: 12px;
+  height: 16px;
+  background: var(--skin);
+  border-radius: 50%;
+  z-index: 0;
+}
+.puppet .ear.left { left: -4px; }
+.puppet .ear.right { right: -4px; }
+
+.puppet .face {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.puppet .brow {
+  position: absolute;
+  top: 26px;
+  width: 12px;
+  height: 3px;
+  background: #4a342c;
+  border-radius: 2px;
+}
+.puppet .brow.left { left: 16px; transform: rotate(-8deg); }
+.puppet .brow.right { right: 16px; transform: rotate(8deg); }
+
+.puppet .eye {
+  position: absolute;
+  top: 32px;
+  width: 12px;
+  height: 13px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(60, 40, 30, 0.08);
+}
+.puppet .eye.left { left: 16px; }
+.puppet .eye.right { right: 16px; }
+.puppet .eye i {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 7px;
+  background: #2a211c;
+  border-radius: 50%;
+}
+
+.puppet .blush {
+  position: absolute;
+  top: 46px;
+  width: 10px;
+  height: 6px;
+  background: rgba(232, 110, 110, 0.35);
+  border-radius: 50%;
+}
+.puppet .blush.left { left: 10px; }
+.puppet .blush.right { right: 10px; }
+
+.puppet .mouth {
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  width: 12px;
+  height: 7px;
+  margin-left: -6px;
+  border-bottom: 2px solid #c56b5a;
+  border-radius: 0 0 10px 10px;
+}
+
+.puppet .torso {
+  position: absolute;
+  left: 50%;
+  top: 86px;
+  width: 70px;
+  height: 92px;
+  margin-left: -35px;
+  background: var(--shirt);
+  border-radius: 24px 24px 18px 18px;
+  transform-origin: 50% 100%;
+  z-index: 3;
+  box-shadow: inset 0 -10px 0 var(--shirt-dark);
+}
+
+.puppet .shoulder {
+  position: absolute;
+  top: -8px;
+  width: 26px;
+  height: 20px;
+  background: var(--shirt);
+  border-radius: 50%;
+  z-index: 1;
+}
+.puppet .shoulder.left { left: -8px; }
+.puppet .shoulder.right { right: -8px; }
+
+.puppet .collar {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 28px;
+  height: 14px;
+  margin-left: -14px;
+  background: #fff8e8;
+  border-radius: 0 0 14px 14px;
+  z-index: 2;
+}
+
+.puppet .arm {
+  position: absolute;
+  top: 90px;
+  width: 18px;
+  z-index: 4;
+  transform-origin: 50% 10px;
+}
+.puppet .arm.left { left: 50%; margin-left: -62px; transform: rotate(8deg); }
+.puppet .arm.right { left: 50%; margin-left: 44px; transform: rotate(-8deg); }
+
+.puppet .upper {
+  width: 18px;
+  height: 54px;
+  background: var(--shirt);
+  border-radius: 12px;
+  position: relative;
+}
+
+.puppet .forearm {
+  position: absolute;
+  top: 46px;
+  left: 1px;
+  width: 16px;
+  height: 50px;
+  background: var(--skin);
+  border-radius: 12px;
+  transform-origin: 50% 6px;
+}
+.puppet .arm.left .forearm { transform: rotate(10deg); }
+.puppet .arm.right .forearm { transform: rotate(-10deg); }
+
+.puppet .hand {
+  position: absolute;
+  left: -3px;
+  bottom: -8px;
+  width: 22px;
+  height: 20px;
+  background: var(--skin);
+  border-radius: 50%;
+  transform-origin: 50% 30%;
+}
+
+.puppet .leg {
+  position: absolute;
+  top: 172px;
+  width: 22px;
+  transform-origin: 50% 8px;
+  z-index: 1;
+}
+.puppet .leg.left { left: 50%; margin-left: -30px; }
+.puppet .leg.right { left: 50%; margin-left: 8px; }
+
+.puppet .thigh {
+  width: 22px;
+  height: 58px;
+  background: var(--pants);
+  border-radius: 12px;
+  position: relative;
+}
+
+.puppet .calf {
+  position: absolute;
+  top: 50px;
+  left: 1px;
+  width: 20px;
+  height: 54px;
+  background: var(--pants);
+  border-radius: 10px;
+  transform-origin: 50% 6px;
+}
+
+.puppet .shoe {
+  position: absolute;
+  left: -6px;
+  bottom: -4px;
+  width: 32px;
+  height: 14px;
+  background: var(--shoe);
+  border-radius: 8px 14px 6px 6px;
+}
+
+.puppet[data-move="idle"] .stage-body {
+  animation: idle-sway 3.6s ease-in-out infinite;
+}
+.puppet[data-move="idle"] .arm.left {
+  animation: idle-arm-l 3.6s ease-in-out infinite;
+}
+.puppet[data-move="idle"] .arm.right {
+  animation: idle-arm-r 3.6s ease-in-out infinite;
+}
+.puppet[data-move="idle"] .torso {
+  animation: idle-chest 3.6s ease-in-out infinite;
+}
+
+.puppet[data-move="breathe"] .arm.left {
+  animation: breathe-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="breathe"] .arm.right {
+  animation: breathe-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="breathe"] .upper-group {
+  animation: breathe-lift var(--phrase) infinite;
+}
+.puppet[data-move="breathe"] .torso {
+  animation: breathe-chest var(--phrase) infinite;
+}
+.puppet[data-move="breathe"] .head-group {
+  animation: breathe-head var(--phrase) infinite;
+}
+
+.puppet[data-move="neck-lr"] .head-group {
+  animation: neck-lr var(--phrase) infinite;
+}
+.puppet[data-move="neck-lr"] .face {
+  animation: face-turn var(--phrase) infinite;
+}
+
+.puppet[data-move="neck-ud"] .head-group {
+  animation: neck-ud var(--phrase) infinite;
+}
+.puppet[data-move="neck-ud"] .neck {
+  animation: neck-ud-neck var(--phrase) infinite;
+  transform-origin: top center;
+}
+
+.puppet[data-move="neck-roll"] .head-group {
+  animation: neck-roll var(--phrase) infinite;
+}
+
+.puppet[data-move="shrug"] .arm.left {
+  animation: shrug-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="shrug"] .arm.right {
+  animation: shrug-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="shrug"] .shoulder {
+  animation: shrug-cap var(--phrase) infinite;
+}
+.puppet[data-move="shrug"] .head-group {
+  animation: shrug-head var(--phrase) infinite;
+}
+
+.puppet[data-move="shoulder-roll"] .arm.left {
+  animation: roll-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="shoulder-roll"] .arm.right {
+  animation: roll-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="shoulder-roll"] .shoulder.left {
+  animation: roll-cap-l var(--phrase) infinite;
+}
+.puppet[data-move="shoulder-roll"] .shoulder.right {
+  animation: roll-cap-r var(--phrase) infinite;
+}
+.puppet[data-move="shoulder-roll"] .torso {
+  animation: roll-chest var(--phrase) infinite;
+}
+
+.puppet[data-move="chest-open"] .arm.left {
+  animation: chest-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="chest-open"] .arm.right {
+  animation: chest-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="chest-open"] .arm.left .forearm {
+  animation: chest-fore-l var(--phrase) infinite;
+}
+.puppet[data-move="chest-open"] .arm.right .forearm {
+  animation: chest-fore-r var(--phrase) infinite;
+}
+.puppet[data-move="chest-open"] .torso {
+  animation: chest-torso var(--phrase) infinite;
+}
+.puppet[data-move="chest-open"] .head-group {
+  animation: chest-head var(--phrase) infinite;
+}
+
+.puppet[data-move="twist"] .upper-group {
+  animation: twist-upper var(--phrase) infinite;
+}
+.puppet[data-move="twist"] .head-group {
+  animation: twist-head var(--phrase) infinite;
+}
+.puppet[data-move="twist"] .arm.left {
+  animation: twist-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="twist"] .arm.right {
+  animation: twist-arm-r var(--phrase) infinite;
+}
+
+.puppet[data-move="side-bend"] .upper-group {
+  animation: side-upper var(--phrase) infinite;
+}
+.puppet[data-move="side-bend"] .head-group {
+  animation: side-head var(--phrase) infinite;
+}
+.puppet[data-move="side-bend"] .arm.left {
+  animation: side-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="side-bend"] .arm.right {
+  animation: side-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="side-bend"] .leg.left {
+  animation: side-leg-l var(--phrase) infinite;
+}
+.puppet[data-move="side-bend"] .leg.right {
+  animation: side-leg-r var(--phrase) infinite;
+}
+
+.puppet[data-move="reach-up"] .arm.left {
+  animation: reach-arm-l var(--phrase) infinite;
+}
+.puppet[data-move="reach-up"] .arm.right {
+  animation: reach-arm-r var(--phrase) infinite;
+}
+.puppet[data-move="reach-up"] .upper-group {
+  animation: reach-upper var(--phrase) infinite;
+}
+.puppet[data-move="reach-up"] .leg.left {
+  animation: reach-heel-l var(--phrase) infinite;
+}
+.puppet[data-move="reach-up"] .leg.right {
+  animation: reach-heel-r var(--phrase) infinite;
+}
+
+.puppet[data-move="wrists"] .arm.left {
+  transform: rotate(-42deg);
+}
+.puppet[data-move="wrists"] .arm.right {
+  transform: rotate(42deg);
+}
+.puppet[data-move="wrists"] .arm.left .forearm {
+  animation: wrist-fore-l var(--phrase) infinite;
+}
+.puppet[data-move="wrists"] .arm.right .forearm {
+  animation: wrist-fore-r var(--phrase) infinite;
+}
+.puppet[data-move="wrists"] .arm.left .hand {
+  animation: wrist-hand-l var(--phrase) infinite;
+}
+.puppet[data-move="wrists"] .arm.right .hand {
+  animation: wrist-hand-r var(--phrase) infinite;
+}
+
+.puppet[data-move="eyes"] .eye i {
+  animation: eyes-look var(--phrase) infinite;
+}
+.puppet[data-move="eyes"] .eye {
+  animation: eyes-blink var(--phrase) infinite;
+}
+.puppet[data-move="eyes"] .arm.right {
+  animation: eyes-point var(--phrase) infinite;
+}
+.puppet[data-move="eyes"] .arm.right .forearm {
+  animation: eyes-point-fore var(--phrase) infinite;
+}
+
+.puppet[data-move="shake"] .arm.left {
+  animation: shake-arm-l 0.46s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .arm.right {
+  animation: shake-arm-r 0.42s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .arm.left .forearm {
+  animation: shake-fore-l 0.34s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .arm.right .forearm {
+  animation: shake-fore-r 0.34s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .hand {
+  animation: shake-hand 0.2s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .upper-group {
+  animation: shake-bounce 0.5s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .leg.left {
+  animation: shake-knee-l 0.5s ease-in-out infinite;
+}
+.puppet[data-move="shake"] .leg.right {
+  animation: shake-knee-r 0.5s ease-in-out infinite;
+}
+
+@keyframes shadow-breathe {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.28; }
+  50% { transform: translateX(-50%) scaleX(1.08); opacity: 0.22; }
+}
+@keyframes idle-sway {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(3px) rotate(0.4deg); }
+}
+@keyframes idle-arm-l {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(12deg); }
+}
+@keyframes idle-arm-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(-11deg); }
+}
+@keyframes idle-chest {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.025); }
+}
+
+@keyframes breathe-arm-l {
+  0%, 100% { transform: rotate(8deg); animation-timing-function: var(--hold); }
+  18% { transform: rotate(-88deg); animation-timing-function: var(--hold); }
+  38%, 56% { transform: rotate(-158deg); animation-timing-function: linear; }
+  74% { transform: rotate(-88deg); animation-timing-function: var(--hold); }
+}
+@keyframes breathe-arm-r {
+  0%, 100% { transform: rotate(-8deg); animation-timing-function: var(--hold); }
+  18% { transform: rotate(88deg); animation-timing-function: var(--hold); }
+  38%, 56% { transform: rotate(158deg); animation-timing-function: linear; }
+  74% { transform: rotate(88deg); animation-timing-function: var(--hold); }
+}
+@keyframes breathe-lift {
+  0%, 16%, 78%, 100% { transform: translateY(0); }
+  38%, 56% { transform: translateY(-10px); }
+}
+@keyframes breathe-chest {
+  0%, 16%, 78%, 100% { transform: scaleY(1); }
+  38%, 56% { transform: scaleY(1.05); }
+}
+@keyframes breathe-head {
+  0%, 16%, 78%, 100% { transform: translateY(0); }
+  38%, 56% { transform: translateY(-6px); }
+}
+
+@keyframes neck-lr {
+  0%, 50%, 100% { transform: rotate(0) translateX(0); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(-10deg) translateX(-9px); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(10deg) translateX(9px); animation-timing-function: linear; }
+}
+@keyframes face-turn {
+  0%, 50%, 100% { transform: translateX(0); }
+  16%, 42% { transform: translateX(-7px); }
+  66%, 92% { transform: translateX(7px); }
+}
+
+@keyframes neck-ud {
+  0%, 50%, 100% { transform: translateY(0) scaleY(1); animation-timing-function: var(--hold); }
+  16%, 42% { transform: translateY(12px) scaleY(0.9); animation-timing-function: linear; }
+  66%, 92% { transform: translateY(-9px) scaleY(1.05); animation-timing-function: linear; }
+}
+@keyframes neck-ud-neck {
+  0%, 50%, 100% { transform: scaleY(1); }
+  16%, 42% { transform: scaleY(0.72); }
+  66%, 92% { transform: scaleY(1.18); }
+}
+
+@keyframes neck-roll {
+  0% { transform: translate(0, -6px) rotate(0); }
+  25% { transform: translate(-12px, 3px) rotate(-14deg); }
+  50% { transform: translate(0, 13px) rotate(0); }
+  75% { transform: translate(12px, 3px) rotate(14deg); }
+  100% { transform: translate(0, -6px) rotate(0); }
+}
+
+@keyframes shrug-arm-l {
+  0%, 48%, 52%, 100% { transform: translateY(0) rotate(8deg); animation-timing-function: var(--hold); }
+  14%, 36% { transform: translateY(-20px) rotate(10deg); animation-timing-function: linear; }
+  64%, 86% { transform: translateY(-20px) rotate(10deg); animation-timing-function: linear; }
+}
+@keyframes shrug-arm-r {
+  0%, 48%, 52%, 100% { transform: translateY(0) rotate(-8deg); animation-timing-function: var(--hold); }
+  14%, 36% { transform: translateY(-20px) rotate(-10deg); animation-timing-function: linear; }
+  64%, 86% { transform: translateY(-20px) rotate(-10deg); animation-timing-function: linear; }
+}
+@keyframes shrug-cap {
+  0%, 48%, 52%, 100% { transform: translateY(0); }
+  14%, 36%, 64%, 86% { transform: translateY(-10px); }
+}
+@keyframes shrug-head {
+  0%, 48%, 52%, 100% { transform: translateY(0); }
+  14%, 36%, 64%, 86% { transform: translateY(4px); }
+}
+
+@keyframes roll-arm-l {
+  0%, 100% { transform: translate(0, 2px) rotate(8deg); }
+  12%, 62% { transform: translate(0, -15px) rotate(6deg); }
+  25%, 75% { transform: translate(8px, -8px) rotate(10deg); }
+  38%, 88% { transform: translate(2px, 4px) rotate(12deg); }
+  50% { transform: translate(-4px, 0) rotate(8deg); }
+}
+@keyframes roll-arm-r {
+  0%, 100% { transform: translate(0, 2px) rotate(-8deg); }
+  12%, 62% { transform: translate(0, -15px) rotate(-6deg); }
+  25%, 75% { transform: translate(-8px, -8px) rotate(-10deg); }
+  38%, 88% { transform: translate(-2px, 4px) rotate(-12deg); }
+  50% { transform: translate(4px, 0) rotate(-8deg); }
+}
+@keyframes roll-cap-l {
+  0%, 100% { transform: translate(0, 0); }
+  12%, 62% { transform: translate(0, -10px); }
+  25%, 75% { transform: translate(5px, -5px); }
+  38%, 88% { transform: translate(1px, 3px); }
+}
+@keyframes roll-cap-r {
+  0%, 100% { transform: translate(0, 0); }
+  12%, 62% { transform: translate(0, -10px); }
+  25%, 75% { transform: translate(-5px, -5px); }
+  38%, 88% { transform: translate(-1px, 3px); }
+}
+@keyframes roll-chest {
+  0%, 50%, 100% { transform: scaleX(1); }
+  25%, 75% { transform: scaleX(1.06); }
+}
+
+@keyframes chest-arm-l {
+  0%, 100% { transform: rotate(-52deg); animation-timing-function: var(--hold); }
+  12% { transform: rotate(-96deg); animation-timing-function: ease-in-out; }
+  18% { transform: rotate(-82deg); animation-timing-function: var(--hold); }
+  28%, 46% { transform: rotate(-100deg); animation-timing-function: linear; }
+  62%, 92% { transform: rotate(-48deg); animation-timing-function: linear; }
+}
+@keyframes chest-arm-r {
+  0%, 100% { transform: rotate(52deg); animation-timing-function: var(--hold); }
+  12% { transform: rotate(96deg); animation-timing-function: ease-in-out; }
+  18% { transform: rotate(82deg); animation-timing-function: var(--hold); }
+  28%, 46% { transform: rotate(100deg); animation-timing-function: linear; }
+  62%, 92% { transform: rotate(48deg); animation-timing-function: linear; }
+}
+@keyframes chest-fore-l {
+  0%, 62%, 100% { transform: rotate(-70deg); }
+  12%, 28%, 46% { transform: rotate(-8deg); }
+  18% { transform: rotate(-18deg); }
+}
+@keyframes chest-fore-r {
+  0%, 62%, 100% { transform: rotate(70deg); }
+  12%, 28%, 46% { transform: rotate(8deg); }
+  18% { transform: rotate(18deg); }
+}
+@keyframes chest-torso {
+  0%, 62%, 100% { transform: scaleX(1); }
+  12%, 28%, 46% { transform: scaleX(1.1); }
+  18% { transform: scaleX(1.04); }
+}
+@keyframes chest-head {
+  0%, 62%, 100% { transform: translateY(0); }
+  12%, 28%, 46% { transform: translateY(-4px); }
+}
+
+@keyframes twist-upper {
+  0%, 50%, 100% { transform: rotate(0); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(-14deg); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(14deg); animation-timing-function: linear; }
+}
+@keyframes twist-head {
+  0%, 50%, 100% { transform: rotate(0) translateX(0); }
+  16%, 42% { transform: rotate(-16deg) translateX(-7px); }
+  66%, 92% { transform: rotate(16deg) translateX(7px); }
+}
+@keyframes twist-arm-l {
+  0%, 50%, 100% { transform: rotate(-90deg); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(-108deg) scale(0.88); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(-78deg) scale(1.08); animation-timing-function: linear; }
+}
+@keyframes twist-arm-r {
+  0%, 50%, 100% { transform: rotate(90deg); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(78deg) scale(1.08); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(108deg) scale(0.88); animation-timing-function: linear; }
+}
+
+@keyframes side-upper {
+  0%, 50%, 100% { transform: rotate(0); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(-16deg); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(16deg); animation-timing-function: linear; }
+}
+@keyframes side-head {
+  0%, 50%, 100% { transform: rotate(0); }
+  16%, 42% { transform: rotate(-8deg); }
+  66%, 92% { transform: rotate(8deg); }
+}
+@keyframes side-arm-l {
+  0%, 50%, 100% { transform: rotate(8deg); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(48deg); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(-168deg); animation-timing-function: linear; }
+}
+@keyframes side-arm-r {
+  0%, 50%, 100% { transform: rotate(-8deg); animation-timing-function: var(--hold); }
+  16%, 42% { transform: rotate(168deg); animation-timing-function: linear; }
+  66%, 92% { transform: rotate(-48deg); animation-timing-function: linear; }
+}
+@keyframes side-leg-l {
+  0%, 50%, 100% { transform: rotate(0); }
+  16%, 42% { transform: rotate(3deg); }
+  66%, 92% { transform: rotate(-5deg); }
+}
+@keyframes side-leg-r {
+  0%, 50%, 100% { transform: rotate(0); }
+  16%, 42% { transform: rotate(5deg); }
+  66%, 92% { transform: rotate(-3deg); }
+}
+
+@keyframes reach-arm-l {
+  0%, 50%, 100% { transform: rotate(8deg); animation-timing-function: var(--hold); }
+  12%, 42% { transform: rotate(-172deg); animation-timing-function: linear; }
+}
+@keyframes reach-arm-r {
+  0%, 50% { transform: rotate(-8deg); animation-timing-function: var(--hold); }
+  12%, 42% { transform: rotate(-8deg); }
+  60%, 90% { transform: rotate(172deg); animation-timing-function: linear; }
+  100% { transform: rotate(-8deg); }
+}
+@keyframes reach-upper {
+  0%, 50%, 100% { transform: translateY(0) rotate(0); }
+  12%, 42% { transform: translateY(-8px) rotate(-3deg); }
+  60%, 90% { transform: translateY(-8px) rotate(3deg); }
+}
+@keyframes reach-heel-l {
+  0%, 50%, 100% { transform: translateY(0); }
+  12%, 42% { transform: translateY(-7px); }
+}
+@keyframes reach-heel-r {
+  0%, 50% { transform: translateY(0); }
+  60%, 90% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes wrist-fore-l {
+  0%, 50%, 100% { transform: rotate(8deg); }
+  12%, 62% { transform: rotate(16deg); }
+  25%, 75% { transform: rotate(8deg); }
+  38%, 88% { transform: rotate(0deg); }
+}
+@keyframes wrist-fore-r {
+  0%, 50%, 100% { transform: rotate(-8deg); }
+  12%, 62% { transform: rotate(-16deg); }
+  25%, 75% { transform: rotate(-8deg); }
+  38%, 88% { transform: rotate(0deg); }
+}
+@keyframes wrist-hand-l {
+  0%, 50%, 100% { transform: translate(0, 0) rotate(0); }
+  12%, 62% { transform: translate(5px, 5px) rotate(22deg); }
+  25%, 75% { transform: translate(0, 10px) rotate(0); }
+  38%, 88% { transform: translate(-5px, 5px) rotate(-22deg); }
+}
+@keyframes wrist-hand-r {
+  0%, 50%, 100% { transform: translate(0, 0) rotate(0); }
+  12%, 62% { transform: translate(-5px, 5px) rotate(-22deg); }
+  25%, 75% { transform: translate(0, 10px) rotate(0); }
+  38%, 88% { transform: translate(5px, 5px) rotate(22deg); }
+}
+
+@keyframes eyes-look {
+  0%, 8%, 100% { transform: translate(0, 0); }
+  14%, 42% { transform: translate(-2px, -3px); }
+  54%, 88% { transform: translate(1px, 3px) scale(0.92); }
+}
+@keyframes eyes-blink {
+  0%, 44%, 50%, 90%, 96%, 100% { transform: scaleY(1); }
+  47%, 93% { transform: scaleY(0.08); }
+}
+@keyframes eyes-point {
+  0%, 48%, 100% { transform: rotate(-8deg); animation-timing-function: var(--hold); }
+  56%, 90% { transform: rotate(-32deg); animation-timing-function: linear; }
+}
+@keyframes eyes-point-fore {
+  0%, 48%, 100% { transform: rotate(-10deg); }
+  56%, 90% { transform: rotate(-78deg); }
+}
+
+@keyframes shake-arm-l {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(26deg); }
+}
+@keyframes shake-arm-r {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(-28deg); }
+}
+@keyframes shake-fore-l {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(28deg); }
+}
+@keyframes shake-fore-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(-28deg); }
+}
+@keyframes shake-hand {
+  0%, 100% { transform: rotate(-18deg); }
+  50% { transform: rotate(22deg); }
+}
+@keyframes shake-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@keyframes shake-knee-l {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes shake-knee-r {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(-6deg); }
+}
