@@ -15,7 +15,7 @@
 
 ## 开发
 
-需要：Node.js、Rust、Windows 上的 Visual Studio C++ Build Tools。
+需要：Node.js、Rust。Windows 上还要 Visual Studio C++ Build Tools；macOS 上还要 Xcode Command Line Tools。
 
 ```bash
 npm install
@@ -28,15 +28,20 @@ npm run tauri dev
 npm run tauri build
 ```
 
-安装包在 `src-tauri/target/release/bundle/nsis/`。双击即可安装（当前用户，一般不需要管理员权限）。主窗口点「试做 45 秒」可以立刻预览全屏课间操。
+安装包：
+
+- Windows：`src-tauri/target/release/bundle/nsis/`
+- macOS：`src-tauri/target/release/bundle/dmg/`
+
+主窗口点「试做 45 秒」可以立刻预览全屏课间操。
 
 ## GitHub Actions 打包
 
-推送到 `main` 或手动运行 workflow 时，会在 Windows runner 上执行 `tauri build`，生成 NSIS 安装包。打包结果在对应 [Actions](https://github.com/licc168/xiaoxi/actions) 运行的 Artifacts 里，文件名类似 `xiaoxi-windows-nsis`。
+推送到 `main` 或手动运行 workflow 时，会同时打 Windows 安装包（NSIS）和 macOS 安装包（Apple 芯片 + Intel 两份 DMG）。打包结果在对应 [Actions](https://github.com/licc168/xiaoxi/actions) 运行的 Artifacts 里。
 
-打版本标签会同时发布到 [GitHub Releases](https://github.com/licc168/xiaoxi/releases)：
+打版本标签会发布到 [GitHub Releases](https://github.com/licc168/xiaoxi/releases)：
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.1
+git push origin v0.1.1
 ```

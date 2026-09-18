@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "小息",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "com.xiaoxi.desktop",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -29,7 +29,7 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
+    "targets": ["nsis", "dmg"],
     "publisher": "xiaoxi",
     "shortDescription": "工间休息提醒 · 课间操",
     "longDescription": "到点弹出全屏课间操，跟着扭脖子、动动手。",
