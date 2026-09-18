@@ -76,10 +76,11 @@ jobs:
           args: ${{ matrix.args }}
           tagName: ${{ github.ref_name }}
           releaseName: 小息 ${{ github.ref_name }}
+          releaseAssetNamePattern: xiaoxi_[version]_[arch][setup][ext]
           releaseBody: |
-            - Windows：下载 `*-setup.exe`，双击安装（当前用户，一般不需要管理员权限）。
-            - macOS Apple 芯片（M 系列）：下载 `*aarch64.dmg`。
-            - macOS Intel：下载 `*x64.dmg`。
+            - Windows：下载 `xiaoxi_*-setup.exe`，双击安装（当前用户，一般不需要管理员权限）。
+            - macOS Apple 芯片（M 系列）：下载 `xiaoxi_*aarch64.dmg`。
+            - macOS Intel：下载 `xiaoxi_*x64.dmg`。
 
             macOS 未签名时，若提示无法打开：在安装包上右键 → 打开，或到「系统设置 → 隐私与安全性」允许。
           releaseDraft: false
